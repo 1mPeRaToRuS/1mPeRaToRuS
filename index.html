@@ -35,6 +35,40 @@
             font-size: 14px;
         }
         #logoutBtn:hover { background: #6a0dad; }
+
+        #imperialPanel {
+            position: absolute;
+            top: 100px;
+            right: 30px;
+            background: #222;
+            border: 2px solid purple;
+            border-radius: 10px;
+            padding: 20px;
+            width: 220px;
+            display: none;
+            flex-direction: column;
+            gap: 12px;
+        }
+        #imperialPanel h3 {
+            color: purple;
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            text-align: center;
+        }
+        #imperialPanel a {
+            color: #ddd;
+            font-size: 15px;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            background: #2a2a2a;
+            text-align: center;
+        }
+        #imperialPanel a:hover {
+            background: purple;
+            color: #fff;
+        }
+
         h1 {
             color: purple;
             font-size: 48px;
@@ -56,6 +90,13 @@
     <div id="userRole"></div>
     <button id="logoutBtn" style="display:none;">Выйти</button>
 
+    <div id="imperialPanel">
+        <h3>Панель Императора</h3>
+        <a href="ukazy.html">Издать указ</a>
+        <a href="spisok.html">Список жителей</a>
+        <a href="#">Настройки Империи</a>
+    </div>
+
     <h1>Добро пожаловать</h1>
     <p>Империя приветствует вас</p>
     <a href="postulaty.html">Постулаты Империи</a>
@@ -66,16 +107,9 @@
 
     <script>
         const role = localStorage.getItem('role');
-	function goToMudrosti() {
-    	    const allowed = ['Чиновник', 'Император'];
-            if (allowed.includes(role)) {
-        	window.location.href = 'mudrosti.html';
-    	    } else {
-        	alert('Доступ только для чиновников и Императора.');
-    }
-}
         const userRole = document.getElementById('userRole');
         const logoutBtn = document.getElementById('logoutBtn');
+        const imperialPanel = document.getElementById('imperialPanel');
 
         userRole.textContent = role ? 'Вы: ' + role : 'Вы: Гость';
 
@@ -83,10 +117,23 @@
             logoutBtn.style.display = 'block';
         }
 
+        if (role === 'Император') {
+            imperialPanel.style.display = 'flex';
+        }
+
         logoutBtn.addEventListener('click', function() {
             localStorage.removeItem('role');
             window.location.reload();
         });
+
+        function goToMudrosti() {
+            const allowed = ['Чиновник', 'Император'];
+            if (allowed.includes(role)) {
+                window.location.href = 'mudrosti.html';
+            } else {
+                alert('Доступ только для чиновников и Императора.');
+            }
+        }
     </script>
 </body>
 </html>
