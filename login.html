@@ -46,10 +46,11 @@
     <p id="result"></p>
 
     <script>
+        // Пароли по ролям (регистр важен!)
         const ROLES = {
-            'IMPERATOR': 'Император',
-            'CHINOVNIK': 'Чиновник',
-            'ZHITEL': 'Житель'
+            '123': 'Житель',
+            'Chin_2026!': 'Чиновник',
+            'Imperia_Veritas_Ordo_Sempiternum_2026': 'Император'
         };
 
         const input = document.getElementById('codeInput');
@@ -57,7 +58,7 @@
         const button = document.getElementById('loginBtn');
 
         function login() {
-            const code = input.value.trim().toUpperCase();
+            const code = input.value.trim(); // регистр сохраняется
             const role = ROLES[code];
 
             if (role) {
