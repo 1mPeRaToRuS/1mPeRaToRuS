@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Империя</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            position: relative;
+        }
+        #userRole {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #aaa;
+            font-size: 16px;
+        }
+        #logoutBtn {
+            position: absolute;
+            top: 50px;
+            right: 30px;
+            background: purple;
+            color: #fff;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        #logoutBtn:hover { background: #6a0dad; }
+        h1 {
+            color: purple;
+            font-size: 48px;
+            margin: 0 0 10px 0;
+        }
+        p {
+            color: #dddddd;
+            font-size: 22px;
+            margin: 0 0 40px 0;
+        }
+        a {
+            color: blue;
+            font-size: 18px;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="userRole"></div>
+    <button id="logoutBtn" style="display:none;">Выйти</button>
+
+    <h1>Добро пожаловать</h1>
+    <p>Империя приветствует вас</p>
+    <a href="postulaty.html">Постулаты Империи</a>
+    <br><br>
+    <a href="#" onclick="goToMudrosti(); return false;">Мудрости Империи</a>
+    <br><br>
+    <a href="login.html">Войти</a>
+
+    <script>
+        const role = localStorage.getItem('role');
+	function goToMudrosti() {
+    	    const allowed = ['Чиновник', 'Император'];
+            if (allowed.includes(role)) {
+        	window.location.href = 'mudrosti.html';
+    	    } else {
+        	alert('Доступ только для чиновников и Императора.');
+    }
+}
+        const userRole = document.getElementById('userRole');
+        const logoutBtn = document.getElementById('logoutBtn');
+
+        userRole.textContent = role ? 'Вы: ' + role : 'Вы: Гость';
+
+        if (role) {
+            logoutBtn.style.display = 'block';
+        }
+
+        logoutBtn.addEventListener('click', function() {
+            localStorage.removeItem('role');
+            window.location.reload();
+        });
+    </script>
+</body>
+</html>

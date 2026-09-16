@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мудрости Империи</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            padding: 60px 20px;
+            box-sizing: border-box;
+        }
+        h1 {
+            color: purple;
+            font-size: 48px;
+            margin: 0 0 50px 0;
+            text-align: center;
+        }
+        .quotes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+            max-width: 1100px;
+        }
+        .quote {
+            background: #222;
+            border: 2px solid purple;
+            border-radius: 10px;
+            padding: 25px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .quote .text {
+            color: #dddddd;
+            font-size: 18px;
+            line-height: 1.5;
+            font-style: italic;
+            margin: 0 0 20px 0;
+        }
+        .quote .author {
+            color: purple;
+            font-size: 16px;
+            text-align: right;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const role = localStorage.getItem('role');
+    	const allowed = ['Чиновник', 'Император'];
+        if (!allowed.includes(role)) {
+            document.body.innerHTML = '<p style="color:#aaa;font-family:Arial;text-align:center;margin-top:100px;">Доступ только для чиновников и Императора.</p>';
+            setTimeout(() => window.location.href = 'index.html', 2000);
+    }
+    </script>
+    <h1>Мудрости Империи</h1>
+
+    <div class="quotes">
+
+        <div class="quote">
+            <p class="text">«- Ах ты, боже мой! - с досадой сказал Обломов - Ведь есть же этакие ослы, что женятся!.»</p>
+            <p class="author">— Гончаров</p>
+        </div>
+
+        <div class="quote">
+            <p class="text">«Не бойся, я к ней не привяжусь: от привязанности только боль.»</p>
+            <p class="author">— "Резонанс ужаса"</p>
+        </div>
+
+        <div class="quote">
+            <p class="text">«Поистине ловок тот, кто умеет скрывать свою ловкость.»</p>
+            <p class="author">— Ларуш Фуко</p>
+        </div>
+	<div class="quote">
+    	    <p class="text">«Никогда, никогда не женись, мой друг; вот тебе мой совет, не женись до тех пор, пока ты не скажешь себе, что ты сделал все, что мог, и до тех пор, пока ты не перестанешь любить ту женщину, какую ты выбрал, пока ты не увидишь ее ясно, а то ты ошибешься жестоко и непоправимо.»</p>
+    	    <p class="author">— Андрей Болконский "Война и мир"</p>
+	</div>
+	<div class="quote">
+    	    <p class="text">«Любовь — это не то, что ты чувствуешь. Это то, что ты делаешь".»</p>
+    	    <p class="author">— Кагура "Гинтама"</p>
+	</div>
+	<div class="quote">
+    	    <p class="text">«Авенантненький - приятный, привлекательный (франц. avenante).»</p>
+    	    <p class="author">—  из "Преступления и наказания"</p>
+	</div>
+	<div class="quote">
+    	    <p class="text">«<Утешься, друг; она дитя,<br>Твоё унынье безрассудно:<br>Ты любишь горестно и трудно,<br>А сердце женское - шутя.»</p>
+    	    <p class="author">— А. С. Пушкин "Цыганы"</p>
+	</div>
+    </div>
+</body>
+</html>
