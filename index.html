@@ -55,18 +55,21 @@
             font-size: 18px;
             text-align: center;
         }
-        #imperialPanel a {
-            color: #ddd;
+        #topSecretBtn {
+            background: #c00000;
+            color: #fff;
+            border: 2px solid #ff3333;
+            padding: 12px;
             font-size: 15px;
-            text-decoration: none;
-            padding: 8px 12px;
+            font-weight: bold;
+            letter-spacing: 1px;
             border-radius: 6px;
-            background: #2a2a2a;
+            cursor: pointer;
             text-align: center;
         }
-        #imperialPanel a:hover {
-            background: purple;
-            color: #fff;
+        #topSecretBtn:hover {
+            background: #ff0000;
+            box-shadow: 0 0 12px #ff3333;
         }
 
         h1 {
@@ -92,9 +95,7 @@
 
     <div id="imperialPanel">
         <h3>Панель Императора</h3>
-        <a href="ukazy.html">Издать указ</a>
-        <a href="spisok.html">Список жителей</a>
-        <a href="#">Настройки Империи</a>
+        <button id="topSecretBtn">TOP SECRET</button>
     </div>
 
     <h1>Добро пожаловать</h1>
@@ -124,6 +125,16 @@
         logoutBtn.addEventListener('click', function() {
             localStorage.removeItem('role');
             window.location.reload();
+        });
+
+        const topSecretBtn = document.getElementById('topSecretBtn');
+        topSecretBtn.addEventListener('click', function() {
+            const pass = prompt('Введите секретный код:');
+            if (pass === 'BrBrPatapim') {
+                window.location.href = 'secret.html';
+            } else if (pass !== null) {
+                alert('Доступ запрещён.');
+            }
         });
 
         function goToMudrosti() {
