@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <link rel="icon" type="image/png" href="android-chrome-512x512.png">
     <meta charset="UTF-8">
     <title>Вход в Империю</title>
     <style>
@@ -47,7 +46,6 @@
     <p id="result"></p>
 
     <script>
-        // Пароли по ролям (регистр важен!)
         const ROLES = {
             '123': 'Житель',
             'Chin_2026!': 'Чиновник',
@@ -59,11 +57,11 @@
         const button = document.getElementById('loginBtn');
 
         function login() {
-            const code = input.value.trim(); // регистр сохраняется
+            const code = input.value.trim();
             const role = ROLES[code];
 
             if (role) {
-                localStorage.setItem('role', role);
+                sessionStorage.setItem('role', role);
                 result.style.color = 'lightgreen';
                 result.textContent = 'Добро пожаловать, ' + role + '!';
                 setTimeout(function() {
