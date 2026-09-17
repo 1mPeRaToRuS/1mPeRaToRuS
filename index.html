@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <link rel="icon" type="image/png" href="android-chrome-512x512.png">
     <meta charset="UTF-8">
     <title>Империя</title>
     <style>
@@ -108,7 +107,7 @@
     <a href="login.html">Войти</a>
 
     <script>
-        const role = localStorage.getItem('role');
+        const role = sessionStorage.getItem('role');
         const userRole = document.getElementById('userRole');
         const logoutBtn = document.getElementById('logoutBtn');
         const imperialPanel = document.getElementById('imperialPanel');
@@ -124,8 +123,8 @@
         }
 
         logoutBtn.addEventListener('click', function() {
-            localStorage.removeItem('role');
-            window.location.reload();
+            sessionStorage.removeItem('role');
+            window.location.replace('index.html');
         });
 
         const topSecretBtn = document.getElementById('topSecretBtn');
